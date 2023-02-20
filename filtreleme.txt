@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+
+#mean filtresi=ort değerleri yazdırma
+#kaç kareyi ort olarak alıcaz
+#medyan filtreleme=9 pikselin küçükten büyüğe sıralanıp ortadakı filtreye göre yazılır
+#gauss filter çan eğrisi
+
+dragons=cv2.imread("dragons.jpg")
+
+
+meanFilter=cv2.blur(dragons,(3,3))
+medianFilter=cv2.medianBlur(dragons,3)
+gaouss=cv2.GaussianBlur(dragons,(3,3),0)
+
+cv2.imshow("su uyur",meanFilter)
+cv2.imshow("dracrys",dragons)
+cv2.imshow("su ustu",medianFilter)
+cv2.imshow("gaouss cart curt",gaouss)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

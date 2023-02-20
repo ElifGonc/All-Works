@@ -1,0 +1,13 @@
+import cv2
+import numpy as np
+
+dragons=cv2.imread("dragons.jpg")
+
+dragons[100:3000,220:420,2]=150
+dragons[100:3000,220:420,1]=150
+cv2.imshow("dragons pic",dragons)
+
+
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

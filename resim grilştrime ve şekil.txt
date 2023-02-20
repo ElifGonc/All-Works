@@ -1,0 +1,23 @@
+import cv2
+import numpy as np
+
+dragons=cv2.imread("dragons.jpg")
+# rengi grileştirme fonksiyonu
+# dragons=cv2.imread("dragons.jpg",0) yazarsam direk resim grileişr
+resimGri=cv2.cvtColor(dragons,cv2.COLOR_BGR2GRAY)
+#resmi gri yaparsak kanal 1e düşer sebep ilerde işlemlerde hız kazanmak
+
+
+yukseklik,genislik,kanalsayisi=dragons.shape
+print("orijinla",yukseklik,genislik,kanalsayisi)
+#değerler sırasıyla yuksekliği genişiliği ve kanals sayısıını verir
+
+yukseklik,genislik=resimGri.shape
+print("gri resim",yukseklik,genislik)
+#zaten gri resmin bgr değerli 1 olduğu için bunu yazmaz
+
+cv2.imshow("ejderhalar",dragons)
+cv2.imshow("gri resim",resimGri)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

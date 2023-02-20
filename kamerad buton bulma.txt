@@ -1,0 +1,48 @@
+import cv2
+
+# Initialize the camera
+camera = cv2.VideoCapture(0)
+
+while True:
+    # Capture a frame from the camera
+    ret, frame = camera.read()
+
+    # Convert the frame to grayscale
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Blur the frame to reduce high frequency noise
+    blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+
+    # Threshold the frame to create a binary image
+    threshold, binary = cv2.threshold(blurred, 200, 255, cv2.THRESH_BINARY)
+
+    # Find the contours of the button
+    contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Find the largest contour
+    button_contour = max(contours, key=cv2.contourArea)
+
+    # Calculate the moments of the contour
+    moments = cv2.moments(button_contour)
+
+    # Calculate the x and y coordinates of the center of the contour
+    center_x = int(moments["m10"] / moments["m00"])
+    center_y = int(moments["m01"] / moments["m00"])
+
+    # Print the center coordinates
+    print(f"Center: ({center_x}, {center_y})")
+
+    # Draw a circle at the center of the contour
+    cv2.circle(frame, (center_x, center_y), 5, (0, 0, 255), -1)
+
+    # Show the frame
+    cv2.imshow("Button", frame)
+
+    # Check if the user pressed the "q" key
+    key = cv2.waitKey(1)
+    if key == ord("q"):
+        break
+
+# Release the camera
+camera.release()
+cv2.destroyAllWindows()

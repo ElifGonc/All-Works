@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+#geniileme beyaz bölgeyi artırma öndeki nesneyi daha görünğr yapar
+#curnell? iterasyon ne kadar artarsa yaptığı şeyi daha yğun uygular
+dragons=cv2.imread("dragons.jpg")
+kernel=np.ones((5,5),np.uint8)
+#dilation tam tersi etki=erosion
+
+
+dilation=cv2.dilate(dragons,kernel,iterations=1)
+erosion=cv2.erode(dragons,kernel,iterations=1)
+#bu ne mq resmi bombok etti minecraft efekti verdi kldfkldsflk
+cv2.imshow("dilation",dilation)
+cv2.imshow("orijinal",dragons)
+cv2.imshow("tam tersi",erosion)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

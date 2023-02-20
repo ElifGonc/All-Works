@@ -1,0 +1,16 @@
+import cv2
+import numpy as np
+
+#eğer videocapture içine 0 yazarsam kendi kameram,1 yazarsam bluetooth,2 yazarsam hali hazır pc ekranımı alır
+kamera=cv2.VideoCapture(0)
+#kamera çalışıor mu diye kontrol etmesi ret fonks
+while True:
+    ret,goruntu=kamera.read()
+    cv2.imshow("ilk karşılaşma",goruntu)
+
+    if cv2.waitKey(30)& 0xFF ==("q"):
+        break
+kamera.release()
+#30 m/sn video akış hızı
+
+cv2.destroyAllWindows()

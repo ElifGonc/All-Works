@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+
+pic=np.zeros((300,300,3),dtype="uint8")
+
+#çizgi için line fonks hep sol üst koşe esas baş ve bitiş belirle renk ve sırasıyla kalınlık
+cv2.line(pic,(50,50),(100,100),(20,60,255),3)
+#daire için circle fonksiyonu ilki merkez ikincisi yarıçap
+cv2.circle(pic,(50,150),25,(0,255,0),2)
+#metin kutusu putText fonks metin,başlangıç piksel yazı tipi,boyut,klaınlık
+cv2.putText(pic,"dragonic",(80,50),cv2.FONT_HERSHEY_COMPLEX,1,(15,150,150),1)
+
+cv2.imshow("line in procces",pic)
+
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

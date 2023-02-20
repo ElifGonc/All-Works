@@ -1,0 +1,15 @@
+import cv2
+import numpy as np
+
+dragons=cv2.imread("dragons.jpg")
+kesit=dragons[100:300,200:400]
+
+dragons[0:200,0:200]=kesit
+
+dragons[0:100,0:200,1]=20
+
+
+cv2.imshow("ıce and fire",dragons)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

@@ -1,0 +1,22 @@
+import cv2
+import numpy as np
+
+
+dragons=cv2.imread("dragons.jpg")
+dragons2=cv2.imread("syrax.jpg")
+
+cv2.imshow("ejderhalar",dragons)
+cv2.imshow("syrax",dragons2)
+
+#resimleri add fonskyonu ile üst üste topluyıurz aynı oyutta olsa çalışırdı ama bulmaya üşendim aslndlskan
+toplam=cv2.add(dragons,dragons2)
+
+#fotolar ararsında yüzde olarak görünümünü ayarlamak için:sonda hep 0 olacak
+agirlikliToplam=cv2.addWeighted(dragons,0,7,dragons2,0.3,0)
+
+cv2.imshow("ağırlıklı toplam",agirlikliToplam)
+cv2.imshow("toplanmıs reimler",toplam)
+
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

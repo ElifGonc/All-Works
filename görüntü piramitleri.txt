@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+
+dragons=cv2.imread("syrax.jpg")
+
+#iki kat büyütme fonksiyonu
+ikikat=cv2.pyrUp(dragons)
+
+#iki kat küçültme fonksiyonu
+ikikatkucuk=cv2.pyrDown(dragons)
+
+cv2.imshow("orijinal",dragons)
+cv2.imshow("x2",ikikat)
+cv2.imshow("x2kucuk",ikikatkucuk)
+
+print(dragons.shape)
+print(ikikat.shape)
+print(ikikatkucuk.shape)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

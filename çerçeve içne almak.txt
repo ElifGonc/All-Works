@@ -1,0 +1,12 @@
+import cv2
+import numpy as np
+
+dragons=cv2.imread("dragons.jpg")
+#dikdörtgen komutu hangi resim sol alt koşe xy olacak şekilde renkparametre en son da dik. klaınlık belirlenir
+cv2.rectangle(dragons,(20,300),(300,100),[0,0,255],3)
+#normal parantz xy köşeli yx
+cv2.imshow("ejderha",dragons)
+
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

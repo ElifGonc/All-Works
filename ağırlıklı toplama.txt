@@ -1,0 +1,19 @@
+import cv2
+import numpy as np
+#renkleri (bgr) toplarken 255e tamamlanır geçerse üstü geçmezse kendisini tanımlarız
+
+dragons=cv2.imread("dragons.jpg")
+dragons2=cv2.imread("syrax.jpg")
+#bgr değerlerini öğrenmek için
+print(dragons[100,200])
+print(dragons2[200,300])
+
+
+cv2.imshow("ejderhalar",dragons)
+cv2.imshow("syrax",dragons2)
+
+print(dragons[100,200]+dragons2[200,300])
+
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

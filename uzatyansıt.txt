@@ -1,0 +1,14 @@
+import cv2
+import numpy as np
+
+dragons=cv2.imread("dragons.jpg")
+
+aynalar=cv2.copyMakeBorder(dragons,100,100,100,100,cv2.BORDER_REFLECT)
+uzatmalar=cv2.copyMakeBorder(dragons,120,120,120,120,cv2.BORDER_REPLICATE)
+
+
+cv2.imshow("dragons",aynalar)
+cv2.imshow("dragons",uzatmalar)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
